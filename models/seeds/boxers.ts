@@ -9,6 +9,6 @@ const seeds = [
 seeds.map((seed) => {
   Boxers.create(seed, (e, data) => {
     if(e) throw new Error(e);
-    console.log(`Created ${data.name} from ${this.constructor['name']} as ${data._id}`);
+    console.log(`Created ${data.name} in the ${Boxers.modelName} collection as ${data._id}`);
   });
 });
