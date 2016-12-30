@@ -9,8 +9,8 @@ var chThreeApp;
             BoxerService.prototype.getBoxers = function () {
                 return this.BoxerResource.query().$promise;
             };
-            BoxerService.prototype.update = function (id) {
-                return this.BoxerResource.save({ id: id }).$promise;
+            BoxerService.prototype.update = function (boxer) {
+                return this.BoxerResource.save({ id: boxer._id }, boxer).$promise;
             };
             return BoxerService;
         }());

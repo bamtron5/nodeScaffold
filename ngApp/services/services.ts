@@ -7,8 +7,8 @@ namespace chThreeApp.Services {
     }
 
     //TODO should be typed
-    update(id) {
-      return this.BoxerResource.save({id: id}).$promise;
+    update(boxer) {
+      return this.BoxerResource.save({id: boxer._id}, boxer).$promise;
     }
 
     constructor(
