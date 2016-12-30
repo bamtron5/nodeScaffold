@@ -2,15 +2,30 @@ import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as ejs from 'ejs';
 import * as path from 'path';
+import * as mongoose from 'mongoose';
 import routes from './routes/index';
 
 let app = express();
+const dev = app.get('env') === 'development' ? true : false;
 
-
-if(app.get('env') === 'development'){
+if(dev){
   let dotenv = require('dotenv');
   dotenv.load();
 }
+
+mongoose.connect(process.env.MONGO_URI);
+mongoose.connection.on('connected', () => {
+  console.log('mongoose connected');
+
+  //if dev seed the deb
+  if(dev) {
+    mongoose.connection.db.dropDatabase();
+    require('./models/seeds/index.js');
+  }
+});
+mongoose.connection.on('error', (e) => {
+  throw new Error(e);
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

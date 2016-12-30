@@ -6,7 +6,6 @@ namespace chThreeApp {
       $urlRouterProvider: ng.ui.IUrlRouterProvider,
       $locationProvider: ng.ILocationProvider
     ) => {
-      console.log(chThreeApp.controllers.HomeController);
       $stateProvider
         .state('home', {
           url: '/',

@@ -2,7 +2,6 @@ var chThreeApp;
 (function (chThreeApp) {
     angular.module('ch-three-app', ['ngResource', 'ui.router'])
         .config(function ($resourceProvider, $stateProvider, $urlRouterProvider, $locationProvider) {
-        console.log(chThreeApp.controllers.HomeController);
         $stateProvider
             .state('home', {
             url: '/',
