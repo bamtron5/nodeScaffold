@@ -8,4 +8,13 @@ router.get('/boxers', (req, res, next) => {
   });
 });
 
+router.post('/boxers/:id', (req, res, next) => {
+  Boxers.update(
+    { _id: req.params.id },
+    req.body,
+    { upsert: true, setDefaultsOnInsert: true }, (e, data) => {
+      res.json(data);
+    });
+});
+
 export = router;

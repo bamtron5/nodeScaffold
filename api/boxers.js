@@ -7,4 +7,9 @@ router.get('/boxers', function (req, res, next) {
         res.json(data);
     });
 });
+router.post('/boxers/:id', function (req, res, next) {
+    Boxers_1.default.update({ _id: req.params.id }, req.body, { upsert: true, setDefaultsOnInsert: true }, function (e, data) {
+        res.json(data);
+    });
+});
 module.exports = router;

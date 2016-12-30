@@ -5,9 +5,7 @@ var chThreeApp;
         $stateProvider
             .state('home', {
             url: '/',
-            template: '<boxer-list></boxer-list>',
-            controller: chThreeApp.controllers.HomeController,
-            controllerAs: 'vm'
+            template: '<boxer-list></boxer-list>'
         });
         $urlRouterProvider.otherwise('/');
         $locationProvider.html5Mode(true);

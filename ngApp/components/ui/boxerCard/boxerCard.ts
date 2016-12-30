@@ -6,7 +6,18 @@ namespace chThreeApp.Components {
 
   export class BoxerCard {
     public boxer;
-    constructor() {
+    constructor(
+      private BoxerService: chThreeApp.Services.BoxerService,
+    ) {
+    }
+
+    submit() {
+      this.BoxerService.update(this.boxer)
+        .then((data) => {
+          //null
+        }).catch((e) => {
+          throw new Error(e);
+        })
     }
   }
 
