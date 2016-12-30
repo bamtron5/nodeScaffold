@@ -3,6 +3,7 @@ import * as bodyParser from 'body-parser';
 import * as ejs from 'ejs';
 import * as path from 'path';
 import * as mongoose from 'mongoose';
+// import Boxers from './models/Boxers';
 import routes from './routes/index';
 
 let app = express();
@@ -20,7 +21,7 @@ mongoose.connection.on('connected', () => {
   //if dev seed the deb
   if(dev) {
     mongoose.connection.db.dropDatabase();
-    require('./models/seeds/index.js');
+    require('./models/seeds/index');
   }
 });
 mongoose.connection.on('error', (e) => {
@@ -38,6 +39,10 @@ app.use('/bower_components', express.static(path.join(__dirname, 'bower_componen
 app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
 app.use('/ngApp', express.static(path.join(__dirname, 'ngApp')));
 
+//a server route
 app.use('/', routes);
+
+//apis
+app.use('/api', require('./api/boxers'))
 
 export = app;

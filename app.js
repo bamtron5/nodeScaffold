@@ -15,7 +15,7 @@ mongoose.connection.on('connected', function () {
     console.log('mongoose connected');
     if (dev) {
         mongoose.connection.db.dropDatabase();
-        require('./models/seeds/index.js');
+        require('./models/seeds/index');
     }
 });
 mongoose.connection.on('error', function (e) {
@@ -28,4 +28,5 @@ app.use('/bower_components', express.static(path.join(__dirname, 'bower_componen
 app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
 app.use('/ngApp', express.static(path.join(__dirname, 'ngApp')));
 app.use('/', index_1.default);
+app.use('/api', require('./api/boxers'));
 module.exports = app;

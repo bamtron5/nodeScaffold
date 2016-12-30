@@ -5,7 +5,7 @@ var chThreeApp;
         $stateProvider
             .state('home', {
             url: '/',
-            templateUrl: './ngApp/views/index.html',
+            template: '<boxer-list></boxer-list>',
             controller: chThreeApp.controllers.HomeController,
             controllerAs: 'vm'
         });

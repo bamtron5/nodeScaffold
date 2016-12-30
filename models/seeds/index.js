@@ -1,1 +1,1 @@
-require('./boxers.js');
+require('./Boxers');
