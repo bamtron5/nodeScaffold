@@ -4,13 +4,13 @@ var chThreeApp;
     (function (Services) {
         var BoxerService = (function () {
             function BoxerService($resource) {
-                this.BoxerResource = $resource('/api/boxers/:id', { id: '@id' });
+                this.BoxerResource = $resource('/api/boxers/:id', { id: '@id' }, { update: { method: 'put' } });
             }
             BoxerService.prototype.getBoxers = function () {
                 return this.BoxerResource.query().$promise;
             };
             BoxerService.prototype.update = function (boxer) {
-                return this.BoxerResource.save({ id: boxer._id }, boxer).$promise;
+                return this.BoxerResource.update({ id: boxer._id }, boxer).$promise;
             };
             return BoxerService;
         }());

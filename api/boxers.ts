@@ -23,8 +23,9 @@ router.put('/boxers/:id', (req, res, next) => {
   Boxers.update(
     { _id: req.params.id },
     req.body,
-    { upsert: true, setDefaultsOnInsert: true },
+    {},
     (e, data) => {
+      if(e) throw new Error(e);
       res.json(data);
     });
 });

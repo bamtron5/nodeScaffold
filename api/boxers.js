@@ -15,7 +15,9 @@ router.post('/boxers', function (req, res, next) {
     });
 });
 router.put('/boxers/:id', function (req, res, next) {
-    Boxers_1.default.update({ _id: req.params.id }, req.body, { upsert: true, setDefaultsOnInsert: true }, function (e, data) {
+    Boxers_1.default.update({ _id: req.params.id }, req.body, {}, function (e, data) {
+        if (e)
+            throw new Error(e);
         res.json(data);
     });
 });

@@ -8,13 +8,13 @@ namespace chThreeApp.Services {
 
     //TODO should be typed
     update(boxer) {
-      return this.BoxerResource.save({id: boxer._id}, boxer).$promise;
+      return this.BoxerResource.update({id: boxer._id}, boxer).$promise;
     }
 
     constructor(
       $resource: ng.resource.IResourceService
     ) {
-      this.BoxerResource = $resource('/api/boxers/:id', {id: '@id'});
+      this.BoxerResource = $resource('/api/boxers/:id', {id: '@id'}, { update: { method: 'put' }});
     }
   }
 
