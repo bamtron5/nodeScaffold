@@ -5,7 +5,8 @@ let router = express.Router();
 //get all
 //TODO paginated
 router.get('/boxers', (req, res, next) => {
-  Boxers.find().then((data) => {
+  Boxers.find({}, {}, (e, data) => {
+    if(e) return res.status(500);
     res.json(data);
   });
 });
@@ -13,7 +14,7 @@ router.get('/boxers', (req, res, next) => {
 //new
 router.post('/boxers', (req, res, next) => {
   Boxers.create(req.body, (e, data) => {
-    if(e) return res.json(e);
+    if(e) return res.status(500);
     res.json(data);
   })
 });
@@ -25,7 +26,7 @@ router.put('/boxers/:id', (req, res, next) => {
     req.body,
     {},
     (e, data) => {
-      if(e) throw new Error(e);
+      if(e) return res.status(500);
       res.json(data);
     });
 });
