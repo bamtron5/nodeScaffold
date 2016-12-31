@@ -7,7 +7,7 @@ namespace chThreeApp.Components {
   export class BoxerCard {
     public boxer;
     constructor(
-      private BoxerService: chThreeApp.Services.BoxerService,
+      private BoxerService: chThreeApp.Services.BoxerService
     ) {
     }
 

@@ -3,18 +3,29 @@ import * as bodyParser from 'body-parser';
 import * as ejs from 'ejs';
 import * as path from 'path';
 import * as mongoose from 'mongoose';
-// import Boxers from './models/Boxers';
+
+//express routes
 import routes from './routes/index';
 
+//init express and assign it to app var
+//INITIATE THE APP
 let app = express();
+
+//optional for security
 const dev = app.get('env') === 'development' ? true : false;
 
+//optional
 if(dev){
   let dotenv = require('dotenv');
   dotenv.load();
 }
 
+//db connections
+// mongodb://user:password@sub.mlab.com:39482/myapp
+// instead of process if you don't use dotenv package
 mongoose.connect(process.env.MONGO_URI);
+
+//optional
 mongoose.connection.on('connected', () => {
   console.log('mongoose connected');
 
@@ -24,6 +35,8 @@ mongoose.connection.on('connected', () => {
     require('./models/seeds/index');
   }
 });
+
+//optional
 mongoose.connection.on('error', (e) => {
   throw new Error(e);
 });
@@ -32,9 +45,8 @@ mongoose.connection.on('error', (e) => {
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
+//config bodyParser
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 //static routing
