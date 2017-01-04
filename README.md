@@ -1,4 +1,9 @@
 ##(From Scratch) Setup
+
+* Create a .env file
+  * Add `MONGO_URI=mongodb://localhost:27017/boxersApp`
+  * Add `PORT=3000`
+
 *RUN this in command line*
 * `npm init`
   * Name your project, then hit enter a few times
@@ -232,7 +237,7 @@ router.put('/boxers/:id', (req, res, next) => {
 export = router;
 ```
 
-*ALTER ./views/index.ejs*
+*ALTER `./views/index.ejs`*
 ```html
 <!DOCTYPE html>
  <html ng-app="ch-three-app">
@@ -362,6 +367,13 @@ namespace chThreeApp.Components {
       controllerAs: 'vm'
     });
   }
+```
+
+*ALTER `./ngApp/components/boxerList/boxerList.html`*
+```html
+<form>
+  <boxer-card ng-repeat="boxer in vm.boxers" boxer="boxer"></boxer-card>
+</form>
 ```
 
 ## (From Clone) Setup
