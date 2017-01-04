@@ -5,7 +5,7 @@ let Schema = mongoose.Schema;
 export interface IBoxer extends mongoose.Document {
   name: string,
   age: number,
-  weight: number,
+  weight: number
 }
 
 let BoxerSchema = new Schema({
@@ -13,5 +13,5 @@ let BoxerSchema = new Schema({
   age: Number,
   weight: Number
 });
-//dkj
+
 export default mongoose.model<IBoxer>('Boxer', BoxerSchema);

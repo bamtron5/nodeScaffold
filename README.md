@@ -2,7 +2,7 @@
 * `npm i`
 * `bower i`
 * Create a .env file
-  * Add `MONGO_URI=mogodb://localhost:27017/boxersApp`
+  * Add `MONGO_URI=mongodb://localhost:27017/boxersApp`
 
 ## Includes
 * component architecture

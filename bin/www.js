@@ -1,7 +1,6 @@
 var app = require('../app.js');
 var http = require('http');
-var port = 3000;
-app.set('port', port);
+app.set('port', process.env.PORT);
 var server = http.createServer(app);
-server.listen(port);
+server.listen(process.env.PORT);
 console.log('im listening');

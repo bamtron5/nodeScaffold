@@ -3,7 +3,7 @@ var chThreeApp;
     var Components;
     (function (Components) {
         var name = 'boxerList';
-        var template = '/ngApp/components/ui/boxerList/boxerList.html';
+        var template = '/ngApp/components/boxerList/boxerList.html';
         var BoxerList = (function () {
             function BoxerList(BoxerService) {
                 var _this = this;
