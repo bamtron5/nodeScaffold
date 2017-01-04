@@ -139,6 +139,19 @@ app.use((err:Error, req, res, next) => {
 export = app;
 ```
 
+*ALTER `./bin/www.ts`*
+```javascript
+let app = require('../app.js');
+let http = require('http');
+
+app.set('port', process.env.PORT);
+
+
+var server = http.createServer(app);
+server.listen(process.env.PORT);
+console.log('im listening');
+```
+
 *ALTER `./ngApp/app.ts`*
 ```javascript
 namespace chThreeApp {
