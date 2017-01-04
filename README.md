@@ -4,6 +4,13 @@
   * Add `MONGO_URI=mongodb://localhost:27017/boxersApp`
   * Add `PORT=3000`
 
+* `touch .gitignore` && add
+```
+.env
+node_modules
+bower_components
+```
+
 *RUN this in command line*
 * `npm init`
   * Name your project, then hit enter a few times
