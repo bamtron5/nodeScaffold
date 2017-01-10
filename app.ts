@@ -20,26 +20,6 @@ if(dev){
   dotenv.load();
 }
 
-//db connections
-// mongodb://user:password@sub.mlab.com:39482/myapp
-// instead of process if you don't use dotenv package
-mongoose.connect(process.env.MONGO_URI);
-
-//optional
-mongoose.connection.on('connected', () => {
-  console.log('mongoose connected');
-
-  //if dev seed the deb
-  if(dev) {
-    mongoose.connection.db.dropDatabase();
-    require('./models/seeds/index');
-  }
-});
-
-//optional
-mongoose.connection.on('error', (e) => {
-  throw new Error(e);
-});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -56,9 +36,6 @@ app.use('/ngApp', express.static(path.join(__dirname, 'ngApp')));
 
 //a server route
 app.use('/', routes);
-
-//apis
-app.use('/api', require('./api/boxers'));
 
 // redirect 404 to home for the sake of AngularJS client-side routes
 app.get('/*', function(req, res, next) {

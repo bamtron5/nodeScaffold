@@ -9,6 +9,5 @@ var chThreeApp;
         });
         $urlRouterProvider.otherwise('/');
         $locationProvider.html5Mode(true);
-    })
-        .run(function () { });
+    });
 })(chThreeApp || (chThreeApp = {}));

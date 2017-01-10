@@ -5,16 +5,7 @@ var chThreeApp;
         var name = 'boxerList';
         var template = '/ngApp/components/boxerList/boxerList.html';
         var BoxerList = (function () {
-            function BoxerList(BoxerService) {
-                var _this = this;
-                this.BoxerService = BoxerService;
-                this.BoxerService.getBoxers()
-                    .then(function (data) {
-                    _this.boxers = data;
-                }).catch(function (e) {
-                    _this.boxers = [];
-                    throw new Error(e);
-                });
+            function BoxerList() {
             }
             return BoxerList;
         }());
