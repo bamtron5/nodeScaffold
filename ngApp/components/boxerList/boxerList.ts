@@ -1,6 +1,7 @@
+/// <reference types="angular" />
 namespace chThreeApp.Components {
 
-  const name = 'boxerList'
+  const name = 'boxerList';
   const template = '/ngApp/components/boxerList/boxerList.html';
 
   export class BoxerList {
