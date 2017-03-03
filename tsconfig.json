@@ -12,10 +12,11 @@
     "removeComments": true,
     "noLib": false,
     "preserveConstEnums": true,
-    "suppressImplicitAnyIndexErrors": true
+    "suppressImplicitAnyIndexErrors": true,
+    "lib": ["es6", "dom"]
   },
-  "include": [
-    "models/**/*"
+  "exclude": [
+    "node_modules"
   ],
   "compileOnSave": true,
   "buildOnSave": false
