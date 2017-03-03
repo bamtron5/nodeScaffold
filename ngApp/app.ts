@@ -1,3 +1,7 @@
+/// <reference types="angular" />
+/// <reference types="angular-ui-router" />
+/// <reference types="angular-resource" />
+
 namespace chThreeApp {
   angular.module('ch-three-app', ['ngResource', 'ui.router'])
     .config((
@@ -10,9 +14,9 @@ namespace chThreeApp {
         .state('home', {
           url: '/',
           template: '<boxer-list></boxer-list>'
-        })
+        });
 
       $urlRouterProvider.otherwise('/');
       $locationProvider.html5Mode(true);
-    })
+    });
 }

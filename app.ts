@@ -39,15 +39,15 @@ app.get('/*', function(req, res, next) {
   }
 });
 
-//  catch 404 and forward to error handler
+// catch 404 and forward to error handler
 app.use((req, res, next) => {
   let err = new Error('Not Found');
   err['status'] = 404;
   next(err);
 });
 
-//  development error handler
-//  will print stacktrace
+// development error handler
+// will print stacktrace
 if (app.get('env') === 'development') {
   app.use((err: Error, req, res, next) => {
     res.status(err['status'] || 500);
